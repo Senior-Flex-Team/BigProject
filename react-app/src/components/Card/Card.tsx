@@ -1,6 +1,6 @@
 import styles from "./Card.module.css"
 import React from 'react';
-import {Card as CardProps} from "../../context/redux-slices/cardsFeedSlice";
+import {Card as CardProps} from "../../entities/Card";
 
 const Card = ({card}: { card: CardProps }) => {
   return (

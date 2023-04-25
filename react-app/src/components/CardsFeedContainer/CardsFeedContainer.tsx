@@ -1,23 +1,24 @@
 import styles from "./CardsFeedContainer.module.css"
-import React, {useEffect} from 'react';
-import {useDispatch, useSelector} from "react-redux";
-import {RootState, TEST_GetAllCards} from "../../context/store";
+import React from 'react';
 import Card from "../Card/Card";
+import {useGetAlLCardsQuery} from "../../context/api-slices/cardsApi";
 
 const CardsFeedContainer = () => {
-  const cardsFeed = useSelector((state: RootState) => state.cardsFeed)
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(TEST_GetAllCards())
-  }, []);
+  const {data, error, isLoading} = useGetAlLCardsQuery();
+  console.log("Is Loading:", isLoading);
+  let content;
+  if (data && data.length > 0) {
+    content = data.map((card, index) => <Card key={index} card={card}/>)
+  } else {
+    content = <div className={styles.noCards}>No cards found</div>
+  }
 
   return (
+
     <div className={styles.cardsFeedContainer}>
-      {cardsFeed.cards.map((card,index) => <Card key={index} card={card} />)}
+      {content}
     </div>
   );
-
 };
 
 export default CardsFeedContainer;

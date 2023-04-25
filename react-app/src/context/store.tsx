@@ -1,17 +1,18 @@
 import {configureStore} from "@reduxjs/toolkit";
-import {cardsFeedSlice} from "./redux-slices/cardsFeedSlice";
-import counterReducer, {counterSlice} from "./redux-slices/counterSlice";
+import counterReducer from "./redux-slices/counterSlice";
+import {cardsApi} from "./api-slices/cardsApi";
+import {setupListeners} from "@reduxjs/toolkit/query";
 
 const store = configureStore({
   reducer: {
-    cardsFeed: cardsFeedSlice.reducer,
-    counter: counterReducer
-  }
+    counter: counterReducer,
+    [cardsApi.reducerPath]: cardsApi.reducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(cardsApi.middleware),
 })
+setupListeners(store.dispatch)
 
-
-export const {increment, incrementByAmount} = counterSlice.actions
-export let {TEST_GetAllCards, downloadOther10Cards} = cardsFeedSlice.actions;
 
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
