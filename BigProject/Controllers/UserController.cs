@@ -33,9 +33,9 @@ namespace BigProject.Controllers
                 _context.Add(user);
                 await _context.SaveChangesAsync();
 
-                var allDrivers = await _context.Users.ToListAsync();
+                var users = await _context.Users.ToListAsync();
 
-                return Ok(allDrivers);
+                return Ok(users);
             }
             catch (Exception ex)
             {

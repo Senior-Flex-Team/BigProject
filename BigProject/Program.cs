@@ -13,9 +13,6 @@ else
     connection = Environment.GetEnvironmentVariable("DefaultConnection");
 
 
-//AddDbContext ��� ����������� ��������� ���� ������ ApiDbContext � �������� ������� � ���������� ������������ ����������.
-//�� ���������, ��� �� ����� ������������ ��������� ���� ������ PostgreSQL ��� ������ ��������� ���� ������, ��������� ����� UseNpgsql. ����� �� �������� ������ �����������, ���������� �� ����������������� �����, � ����� UseNpgsql,
-//����� ���������� ����������� � ���� ������.
 builder.Services.AddDbContext<ApiDbContext>(options => options.UseNpgsql(connection));
 builder.Services.AddCors();
 builder.Services.AddControllers();
