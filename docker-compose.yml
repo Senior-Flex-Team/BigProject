@@ -33,13 +33,22 @@ services:
     ports:
       - "8088:80"
     build:
-      context: .
+      context: ./BigProject
       dockerfile: Dockerfile
     environment:
       - DefaultConnection=Server=postgres;Port=5432;Database=BigProjectDb;User ID=postgres;Password=postgres;IntegratedSecurity=true;Pooling=true;
     networks:
       - dev
-  
+  front-end:
+    container_name: front-end
+    build:
+      context: ./react-app
+      dockerfile: Dockerfile
+    ports:
+      - "8089:3000"
+    volumes:
+      - ./react-app:/app
+
   postgres:
     image: postgres:latest
     container_name: postgres
@@ -49,6 +58,6 @@ services:
       - POSTGRES_DB=BigProjectDb
     restart: always
     volumes:
-      - ./app_data:/var/lib/postgresql/data
+      - ./BigProject/app_data:/var/lib/postgresql/data
     networks:
       - dev
