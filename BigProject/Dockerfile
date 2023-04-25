@@ -1,31 +1,20 @@
-#See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
-
-#это ключевое слово, которое указывает базовый образ, от которого будет наследоваться новый образ.
-FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build-env
-#это ключевое слово, которое указывает текущую рабочую директорию внутри контейнера.
+FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
 WORKDIR /app
-# это ключевое слово, которое указывает порт, который контейнер будет "экспонировать" наружу. Однако, оно само по себе не приводит к открытию порта.
 EXPOSE 80
 EXPOSE 443
 
-# это ключевое слово, которое указывает на необходимость копирования файлов внутрь образа.
-COPY *.csproj ./
-#"RUN" - это ключевое слово, которое указывает на необходимость выполнения команды внутри образа контейнера.
-#"dotnet restore" - это команда для восстановления всех зависимостей проекта .NET, указанных в файле проекта .csproj.
-RUN dotnet restore
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+WORKDIR /src
+COPY ["BigProject.csproj", "BigProject/"]
+RUN dotnet restore "BigProject/BigProject.csproj"
+COPY ["." , "BigProject/"]
+WORKDIR "/src/BigProject"
+RUN dotnet build "BigProject.csproj" -c Release -o /app/build
 
-# это путь к директории, которая будет скопирована внутрь образа контейнера. В данном случае это текущая директория, в которой находится Dockerfile и все файлы проекта.
-COPY . ./
+FROM build AS publish
+RUN dotnet publish "BigProject.csproj" -c Release -o /app/publish
 
-#Эта команда Dockerfile используется для сборки и публикации проекта внутри образа контейнера.
-#"-o out" - это параметр, который указывает на выходную директорию, где будут храниться скомпилированные файлы.
-RUN dotnet publish -c Release -o out
-
-FROM mcr.microsoft.com/dotnet/sdk:7.0 AS final-env
+FROM base AS final
 WORKDIR /app
-#Эта команда Dockerfile копирует собранные файлы проекта из контейнера, созданного на предыдущем этапе (сборка проекта), в текущую директорию образа.
-COPY --from=build-env /app/out .
-#это ключевое слово, которое указывает на необходимость установки точки входа в приложение.
-#Таким образом, при запуске контейнера, Docker выполнит данную команду и запустит приложение внутри контейнера. Это обеспечивает автоматический запуск приложения при старте контейнера, без необходимости вручную запускать его внутри контейнера.
+COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "BigProject.dll"]
-

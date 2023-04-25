@@ -1,5 +1,6 @@
 ﻿using BigProject.Data;
 using BigProject.Models;
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,7 +14,7 @@ namespace BigProject.Controllers
         private readonly ApiDbContext _context;
         public UserController(
             ILogger<UserController> logger,
-            ApiDbContext context) 
+            ApiDbContext context)
         {
             _logger = logger;
             _context = context;
@@ -32,11 +33,11 @@ namespace BigProject.Controllers
                 _context.Add(user);
                 await _context.SaveChangesAsync();
 
-                var allDrivers = _context.Users.ToListAsync();
+                var allDrivers = await _context.Users.ToListAsync();
 
                 return Ok(allDrivers);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }

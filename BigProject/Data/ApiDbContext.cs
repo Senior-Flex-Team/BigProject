@@ -13,7 +13,7 @@ namespace BigProject.Data
     {
         public ApiDbContext(DbContextOptions<ApiDbContext> options) : base(options) 
         { 
-
+            Database.EnsureCreated();
         }
         /// <summary>
         /// DbSet - это класс в Entity Framework, который представляет коллекцию сущностей для определенного типа
