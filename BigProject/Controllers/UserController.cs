@@ -8,7 +8,7 @@ namespace BigProject.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class UserController : ControllerBase
+    public class UserController : Controller
     {
         private readonly ILogger<UserController> _logger;
         private readonly ApiDbContext _context;

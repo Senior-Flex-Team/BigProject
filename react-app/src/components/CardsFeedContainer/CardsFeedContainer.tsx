@@ -1,10 +1,10 @@
 import styles from "./CardsFeedContainer.module.css"
 import React from 'react';
 import Card from "../Card/Card";
-import {useGetAlLCardsQuery} from "../../context/api-slices/cardsApi";
+import {useGetAllCardsQuery} from "../../context/api-slices/cardsApi";
 
 const CardsFeedContainer = () => {
-  const {data, error, isLoading} = useGetAlLCardsQuery();
+    const { data, error, isLoading } = useGetAllCardsQuery();
   console.log("Is Loading:", isLoading);
   let content;
   if (data && data.length > 0) {
