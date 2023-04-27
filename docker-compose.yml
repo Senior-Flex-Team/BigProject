@@ -48,6 +48,7 @@ services:
       - "8089:3000"
     volumes:
       - ./react-app:/app
+      - /app/node_modules
 
   postgres:
     image: postgres:latest
