@@ -1,31 +1,49 @@
-import styles from "./Dropdown.module.css";
-import React from "react";
-import avatar from "images/avatar.jpeg";
-import arrow from "images/arrow.svg";
+import styles from './dropdown.module.css';
+import React, { FC } from 'react';
+import avatar from './avatar.jpeg';
+import arrow from './arrow.svg';
 
-const Dropdown = () => {
+const Dropdown: FC = () => {
+  function ToggleDropdown() {}
+
   return (
     <div className={styles.dropdown}>
-      <button className={styles.dropdownButton} onClick={toggleDropdown}>
+      <button
+        className={styles.dropdownButton}
+        onClick={ToggleDropdown}
+      >
         <img
           className={styles.dropdownBdropdownAvatarutton}
           src={avatar}
-          alt="Icon: avatar"
+          alt='Icon: avatar'
         />
-        <img className={styles.dropdownArrow} src={arrow} alt="Icon: arrow" />
+        <img
+          className={styles.dropdownArrow}
+          src={arrow}
+          alt='Icon: arrow'
+        />
       </button>
 
-      <div className={styles.dropdownContent} id="dropdownMenu">
+      <div
+        className={styles.dropdownContent}
+        id='dropdownMenu'
+      >
         <ul className={styles.dropdownListIcon}>
           <li className={styles.dropdownItemIcon}>
             <div className={styles.dropdownIcon}></div>
-            <a className={styles.dropdownLink} href="#"></a>
+            <a
+              className={styles.dropdownLink}
+              href='#'
+            ></a>
           </li>
         </ul>
 
         <ul className={styles.dropdownListText}>
           <li className={styles.dropdownItemText}>
-            <a className={styles.dropdownLink} href="#"></a>
+            <a
+              className={styles.dropdownLink}
+              href='#'
+            ></a>
           </li>
         </ul>
 
