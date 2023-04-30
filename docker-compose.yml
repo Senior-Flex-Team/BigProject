@@ -33,7 +33,7 @@ services:
     ports:
       - "8088:80"
     build:
-      context: ./BigProject
+      context: ./aspnet-app
       dockerfile: Dockerfile
     environment:
       - DefaultConnection=Server=postgres;Port=5432;Database=BigProjectDb;User ID=postgres;Password=postgres;IntegratedSecurity=true;Pooling=true;
@@ -55,7 +55,7 @@ services:
     image: postgres:latest
     container_name: postgres
     ports:
-      - "5432"
+      - "8090:5432"
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
