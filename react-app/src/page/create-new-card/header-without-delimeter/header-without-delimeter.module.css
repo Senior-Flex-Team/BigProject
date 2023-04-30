@@ -1,0 +1,142 @@
+.header {
+  position: relative;
+  top: 0;
+  background-color: inherit;
+  width: 100%;
+  display: flex;
+  padding: 8px 24px;
+  justify-content: center;
+  color: rgba(117, 117, 117, 1);
+  margin-bottom: 36px;
+}
+
+.headerContainer {
+  display: flex;
+  padding: 8px 24px;
+  align-items: center;
+  justify-content: space-between;
+  width: 70%;
+}
+
+.headerHeight {
+  height: 52px;
+}
+
+.leftSide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  width: 36px;
+  height: 36px;
+  margin-right: 24px;
+}
+
+.logo:hover {
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .logo {
+    animation: logo-spin infinite 8s linear;
+  }
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.search {
+  background-color: #eeeeee;
+  width: 230px;
+  border-radius: 30px;
+  height: 30px;
+  overflow: hidden;
+  display: flex;
+  padding: 0 16px 0 4px;
+  justify-content: left;
+  align-items: center;
+}
+
+.search:hover {
+  cursor: text;
+}
+
+.search svg {
+  margin-right: 12px;
+}
+
+.searchInput {
+  background-color: inherit;
+  flex: 1;
+}
+
+.rightSide {
+  gap: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.publishButton {
+  background-color: #1a8917;
+  color: white;
+  border-radius: 20px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.1s ease-in-out;
+  cursor: pointer;
+}
+
+.publishButton:hover {
+  background-color: #11570f;
+  color: white;
+}
+
+.notificationLogo {
+  padding: 8px 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.1s ease-in-out;
+}
+
+.notificationLogo:hover {
+  cursor: pointer;
+  color: #3b3b3b;
+}
+
+.addNewPostText {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.profile {
+  padding: 4px 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  transition: all 0.1s ease-in-out;
+}
+
+.profile:hover {
+  cursor: pointer;
+  color: #3b3b3b;
+}
+
+.imageContainer {
+  width: 36px;
+  height: 36px;
+  overflow: hidden;
+  border-radius: 50%;
+}
