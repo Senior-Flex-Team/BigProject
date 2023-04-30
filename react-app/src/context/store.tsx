@@ -1,19 +1,21 @@
-import {configureStore} from "@reduxjs/toolkit";
-import counterReducer from "./redux-slices/counterSlice";
-import {cardsApi} from "./api-slices/cardsApi";
-import {setupListeners} from "@reduxjs/toolkit/query";
+import { configureStore } from '@reduxjs/toolkit';
 
-const store = configureStore({
+import { setupListeners } from '@reduxjs/toolkit/query';
+
+import { counterReducer } from './redux-slices/counter-slice';
+import { cardsApi } from './api-slices/cards-api';
+
+export const store = configureStore({
   reducer: {
     counter: counterReducer,
     [cardsApi.reducerPath]: cardsApi.reducer,
   },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(cardsApi.middleware),
-})
-setupListeners(store.dispatch)
+  middleware: (getDefaultMiddleware) => [
+    ...getDefaultMiddleware(),
+    cardsApi.middleware,
+  ],
+});
+setupListeners(store.dispatch);
 
-
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
-export default store;
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
