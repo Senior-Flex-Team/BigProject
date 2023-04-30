@@ -1,0 +1,35 @@
+name: main action
+on:
+#  push:
+#    branches: [ '**' ]
+  pull_request:
+    branches: [ main, development ]
+jobs:
+  Explore-Github-Actions:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 18.x ]
+    steps:
+      - uses: actions/checkout/@v3
+      - name: Starting Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: install modules
+        working-directory: react-app
+        run: yarn install
+
+      - name: lint code
+        working-directory: react-app
+        run: yarn run lint
+
+      - name: prettier code
+        working-directory: react-app
+        run: yarn run prettier
+
+#      - name: build project
+#        working-directory: react-app
+#        run: npm run build
+
