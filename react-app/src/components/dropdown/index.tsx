@@ -31,19 +31,17 @@ const Dropdown: FC = () => {
         <ul className={styles.dropdownListIcon}>
           <li className={styles.dropdownItemIcon}>
             <div className={styles.dropdownIcon}></div>
-            <a
+            <span
               className={styles.dropdownLink}
-              href='#'
-            ></a>
+            ></span>
           </li>
         </ul>
 
         <ul className={styles.dropdownListText}>
           <li className={styles.dropdownItemText}>
-            <a
+            <span
               className={styles.dropdownLink}
-              href='#'
-            ></a>
+            ></span>
           </li>
         </ul>
 

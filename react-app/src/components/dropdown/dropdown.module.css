@@ -1,102 +1,43 @@
-/*Reset*/
-html {
-  box-sizing: border-box;
-  font-size: 16px;
-}
-
-*,
-*::after,
-*::before {
-  box-sizing: inherit;
-}
-
-ul,
-ol[class] {
-  padding: 0;
-}
-
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-ul,
-ol[class],
-li,
-figure,
-figcaption,
-blockquote,
-dl,
-dd {
-  margin: 0;
-}
-
-ul[class] {
-  list-style: none;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-
-a {
-  text-decoration: none;
-}
-
-body {
-  font-family: Arial, sans-serif;
-}
 .dropdownButton {
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 4px;
   border: none;
   background-color: #fff;
   cursor: pointer;
-  padding: 0.625rem;
+  padding: 10px;
 }
 .dropdownAvatar {
-  width: 2rem;
-  height: 2rem;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
 }
 .dropdownArrow {
-  width: 0.75rem;
-  height: 0.75rem;
+  width: 12px;
+  height: 12px;
 }
 .dropdownContent {
   display: none;
   position: absolute;
   background-color: #fff;
-  box-shadow: rgb(230, 230, 230) 0rem 0.0625rem 0.25rem;
-  width: 16.5rem;
+  box-shadow: rgb(230, 230, 230) 0px 1px 4px;
+  width: 264px;
   z-index: 1;
   top: 100%;
   right: 0;
   overflow-y: auto;
-  border-radius: 0.25rem;
+  border-radius: 4px;
 }
 .dropdownListIcon {
-  padding: 1rem 0rem;
-  border-bottom: 0.0625rem solid rgb(230, 230, 230);
+  padding: 16px 0px;
+  border-bottom: 1px solid rgb(230, 230, 230);
 }
 .dropdownListText {
-  padding: 1.125rem 0rem;
-  border-bottom: 0.0625rem solid rgb(230, 230, 230);
+  padding: 18px 0px;
+  border-bottom: 1px solid rgb(230, 230, 230);
 }
 .dropdownItemIcon {
-  padding: 0.5rem 1.5rem;
+  padding: 8px 24px;
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -112,7 +53,7 @@ body {
   color: #000;
 }
 .dropdownItemText {
-  padding: 0.375rem 1.5rem;
+  padding: 6px 24px;
   cursor: pointer;
   transition: all 0.3s;
 }
@@ -120,14 +61,14 @@ body {
   color: #000;
 }
 .dropdownItemOut {
-  margin-bottom: 0.25rem;
+  margin-bottom: 4px;
   transition: all 0.3s;
 }
 .dropdownItemOut:hover {
   color: #000;
 }
 .dropdownItemEmail {
-  font-size: 0.8125rem;
+  font-size: 13px;
   max-height: none;
   transition: all 0.3s;
 }
@@ -135,13 +76,14 @@ body {
   color: #000;
 }
 .dropdownIcon {
-  width: 1.5rem;
-  height: 1.5rem;
-  margin-right: 1rem;
+  width: 24px;
+  height: 24px;
+  margin-right: 16px;
 }
 .dropdownLink {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  display: block;
+  font-size: 14px;
+  line-height: 20px;
   color: rgb(117, 117, 117);
   text-decoration: none;
   transition: all 0.3s;
@@ -151,10 +93,10 @@ body {
 }
 .dropdownListButton {
   display: block;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  font-size: 14px;
+  line-height: 20px;
   text-align: start;
-  padding: 0.375rem 1.5rem;
+  padding: 6px 24px;
   color: rgb(117, 117, 117);
   background-color: #fff;
   border: none;
