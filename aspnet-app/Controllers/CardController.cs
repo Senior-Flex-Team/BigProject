@@ -1,8 +1,7 @@
-﻿using BigProject.Data;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace BigProject.Controllers
+namespace aspnet_app
 {
     public class CardController : Controller
     {

@@ -1,10 +1,7 @@
-﻿using BigProject.Data;
-using BigProject.Models;
-
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace BigProject.Controllers
+namespace aspnet_app
 {
     [ApiController]
     [Route("[controller]")]

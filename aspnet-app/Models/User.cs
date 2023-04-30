@@ -1,4 +1,4 @@
-﻿namespace BigProject.Models
+﻿namespace aspnet_app
 {
     public class User
     {

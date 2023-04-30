@@ -1,7 +1,6 @@
-﻿using BigProject.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
-namespace BigProject.Data
+namespace aspnet_app
 {
     /// <summary>
     /// Класс DbContext - это основной класс в Entity Framework, который предоставляет доступ к базе данных и управляет объектами модели данных в приложении. DbContext позволяет выполнять CRUD (Create, Read, Update, Delete) операции с данными и выполнять запросы к базе данных.
