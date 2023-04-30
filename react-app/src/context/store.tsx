@@ -6,14 +6,14 @@ import { counterReducer } from './redux-slices/counter-slice';
 import { cardsApi } from './api-slices/cards-api';
 
 export const store = configureStore({
-    reducer: {
-        counter: counterReducer,
-        [cardsApi.reducerPath]: cardsApi.reducer,
-    },
-    middleware: (getDefaultMiddleware) => [
-        ...getDefaultMiddleware(),
-        cardsApi.middleware,
-    ],
+  reducer: {
+    counter: counterReducer,
+    [cardsApi.reducerPath]: cardsApi.reducer,
+  },
+  middleware: (getDefaultMiddleware) => [
+    ...getDefaultMiddleware(),
+    cardsApi.middleware,
+  ],
 });
 setupListeners(store.dispatch);
 
