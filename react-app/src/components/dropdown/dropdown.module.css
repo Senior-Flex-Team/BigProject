@@ -1,0 +1,107 @@
+.dropdown {
+  position: relative;
+}
+.dropdownButton {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
+  padding: 10px;
+}
+.dropdownAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+.dropdownArrow {
+  width: 12px;
+  height: 12px;
+}
+.dropdownContent {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: rgb(230, 230, 230) 0px 1px 4px;
+  width: 264px;
+  z-index: 1;
+  top: 100%;
+  right: 0;
+  overflow-y: auto;
+  border-radius: 4px;
+}
+.dropdownListIcon {
+  padding: 16px 0px;
+  border-bottom: 1px solid rgb(230, 230, 230);
+}
+.dropdownListText {
+  padding: 18px 0px;
+  border-bottom: 1px solid rgb(230, 230, 230);
+}
+.dropdownItemIcon {
+  padding: 8px 24px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.dropdownItemIcon:hover svg path {
+  stroke: #000;
+}
+.dropdownItemIcon:hover svg circle {
+  stroke: #000;
+}
+.dropdownItemIcon:hover .dropdownLink {
+  color: #000;
+}
+.dropdownItemText {
+  padding: 6px 24px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.dropdownItemText:hover {
+  color: #000;
+}
+.dropdownItemOut {
+  margin-bottom: 4px;
+  transition: all 0.3s;
+}
+.dropdownItemOut:hover {
+  color: #000;
+}
+.dropdownItemEmail {
+  font-size: 13px;
+  max-height: none;
+  transition: all 0.3s;
+}
+.dropdownItemEmail:hover {
+  color: #000;
+}
+.dropdownIcon {
+  width: 24px;
+  height: 24px;
+  margin-right: 16px;
+}
+.dropdownLink {
+  display: block;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgb(117, 117, 117);
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.dropdownLink:hover {
+  color: #000;
+}
+.dropdownListButton {
+  display: block;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: start;
+  padding: 6px 24px;
+  color: rgb(117, 117, 117);
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+}
