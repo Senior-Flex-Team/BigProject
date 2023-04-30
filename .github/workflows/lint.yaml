@@ -19,15 +19,15 @@ jobs:
 
       - name: install modules
         working-directory: react-app
-        run: npm install
+        run: yarn install
 
       - name: lint code
         working-directory: react-app
-        run: npm run lint
+        run: yarn run lint
 
       - name: prettier code
         working-directory: react-app
-        run: npm run prettier
+        run: yarn run prettier
 
 #      - name: build project
 #        working-directory: react-app
