@@ -1,3 +1,6 @@
+.dropdown {
+  position: relative;
+}
 .dropdownButton {
   display: flex;
   align-items: center;

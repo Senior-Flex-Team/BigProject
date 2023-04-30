@@ -13,7 +13,7 @@ const Dropdown: FC = () => {
         onClick={ToggleDropdown}
       >
         <img
-          className={styles.dropdownBdropdownAvatarutton}
+          className={styles.dropdownAvatar}
           src={avatar}
           alt='Icon: avatar'
         />
