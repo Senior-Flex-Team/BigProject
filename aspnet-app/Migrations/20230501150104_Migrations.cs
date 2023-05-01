@@ -20,8 +20,8 @@ namespace aspnet_app.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Name = table.Column<string>(type: "text", nullable: false),
-                    Image = table.Column<string>(type: "text", nullable: false)
+                    Name = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    Image = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -37,10 +37,10 @@ namespace aspnet_app.Migrations
                     AuthorId = table.Column<int>(type: "integer", nullable: false),
                     CategoryId = table.Column<int>(type: "integer", nullable: false),
                     Content = table.Column<string>(type: "text", nullable: false),
-                    CreatedAt = table.Column<DateOnly>(type: "date", nullable: false),
-                    Image = table.Column<string>(type: "text", nullable: false),
-                    Tags = table.Column<string>(type: "text", nullable: false),
-                    TimeToRead = table.Column<TimeOnly>(type: "time without time zone", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    Image = table.Column<string>(type: "text", nullable: true),
+                    Tags = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: true),
+                    TimeToRead = table.Column<TimeSpan>(type: "interval", nullable: false),
                     Title = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
@@ -54,7 +54,7 @@ namespace aspnet_app.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Name = table.Column<string>(type: "text", nullable: false)
+                    Name = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -67,7 +67,7 @@ namespace aspnet_app.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Name = table.Column<string>(type: "text", nullable: false)
+                    Name = table.Column<string>(type: "character varying(40)", maxLength: 40, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -84,8 +84,8 @@ namespace aspnet_app.Migrations
                 columns: new[] { "Id", "AuthorId", "CategoryId", "Content", "CreatedAt", "Image", "Tags", "TimeToRead", "Title" },
                 values: new object[,]
                 {
-                    { 1, 1, 1, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fug", new DateOnly(2023, 1, 8), "https://miro.medium.com/v2/resize:fill:224:224/1*8UwcxNMjdWjipC_XZu8qYg.png", "Mac", new TimeOnly(0, 13, 0), "Bill Gates: People Don't Realize What's Coming" },
-                    { 2, 1, 1, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fug", new DateOnly(2023, 1, 9), "https://miro.medium.com/v2/resize:fill:224:224/0*51beacbmyp82xuxN", "Programming", new TimeOnly(0, 6, 0), "Node.js Developer Roadmap 2023" }
+                    { 1, 1, 1, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fug", new DateTime(2023, 1, 7, 21, 0, 0, 0, DateTimeKind.Utc), "https://miro.medium.com/v2/resize:fill:224:224/1*8UwcxNMjdWjipC_XZu8qYg.png", "Mac", new TimeSpan(0, 0, 6, 0, 0), "Bill Gates: People Don't Realize What's Coming" },
+                    { 2, 1, 1, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fug", new DateTime(2023, 1, 8, 21, 0, 0, 0, DateTimeKind.Utc), "https://miro.medium.com/v2/resize:fill:224:224/0*51beacbmyp82xuxN", "Programming", new TimeSpan(0, 0, 13, 0, 0), "Node.js Developer Roadmap 2023" }
                 });
 
             migrationBuilder.InsertData(

@@ -1,8 +1,14 @@
-﻿namespace aspnet_app
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace aspnet_app
 {
     public class Category
     {
+        [Key]
         public int Id { get; set; }
-        public string Name { get; set; } = null!;
+
+        [Required]
+        [StringLength(100)]
+        public string Name { get; set; }
     }
 }

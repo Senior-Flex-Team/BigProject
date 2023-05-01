@@ -13,7 +13,7 @@ else
     connection = Environment.GetEnvironmentVariable("DefaultConnection");
 
 
-builder.Services.AddDbContext<ApiDbContext>(options => options.UseNpgsql(connection));
+builder.Services.AddDbContext<ApiDbContext>(options => options.UseNpgsql(connection).EnableSensitiveDataLogging());
 builder.Services.AddCors();
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();

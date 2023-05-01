@@ -31,12 +31,12 @@ namespace aspnet_app.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Image")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.HasKey("Id");
 
@@ -69,19 +69,18 @@ namespace aspnet_app.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateOnly>("CreatedAt")
-                        .HasColumnType("date");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Image")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Tags")
-                        .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
-                    b.Property<TimeOnly>("TimeToRead")
-                        .HasColumnType("time without time zone");
+                    b.Property<TimeSpan>("TimeToRead")
+                        .HasColumnType("interval");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -98,10 +97,10 @@ namespace aspnet_app.Migrations
                             AuthorId = 1,
                             CategoryId = 1,
                             Content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fug",
-                            CreatedAt = new DateOnly(2023, 1, 8),
+                            CreatedAt = new DateTime(2023, 1, 7, 21, 0, 0, 0, DateTimeKind.Utc),
                             Image = "https://miro.medium.com/v2/resize:fill:224:224/1*8UwcxNMjdWjipC_XZu8qYg.png",
                             Tags = "Mac",
-                            TimeToRead = new TimeOnly(0, 13, 0),
+                            TimeToRead = new TimeSpan(0, 0, 6, 0, 0),
                             Title = "Bill Gates: People Don't Realize What's Coming"
                         },
                         new
@@ -110,10 +109,10 @@ namespace aspnet_app.Migrations
                             AuthorId = 1,
                             CategoryId = 1,
                             Content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fug",
-                            CreatedAt = new DateOnly(2023, 1, 9),
+                            CreatedAt = new DateTime(2023, 1, 8, 21, 0, 0, 0, DateTimeKind.Utc),
                             Image = "https://miro.medium.com/v2/resize:fill:224:224/0*51beacbmyp82xuxN",
                             Tags = "Programming",
-                            TimeToRead = new TimeOnly(0, 6, 0),
+                            TimeToRead = new TimeSpan(0, 0, 13, 0, 0),
                             Title = "Node.js Developer Roadmap 2023"
                         });
                 });
@@ -128,7 +127,8 @@ namespace aspnet_app.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.HasKey("Id");
 
@@ -152,7 +152,8 @@ namespace aspnet_app.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(40)
+                        .HasColumnType("character varying(40)");
 
                     b.HasKey("Id");
 

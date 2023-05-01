@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 namespace aspnet_app
 {
@@ -46,10 +47,10 @@ namespace aspnet_app
                 AuthorId = 1,
                 CategoryId = 1,
                 Content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fug",
-                CreatedAt = new DateOnly(2023, 01, 8),
+                CreatedAt = new DateTime(2023, 01, 8).ToUniversalTime(),
                 Image = "https://miro.medium.com/v2/resize:fill:224:224/1*8UwcxNMjdWjipC_XZu8qYg.png",
                 Tags = "Mac",
-                TimeToRead = new TimeOnly(0, 13, 0),
+                TimeToRead = TimeSpan.FromMinutes(6),
                 Title = "Bill Gates: People Don't Realize What's Coming"
             },
             new
@@ -58,10 +59,10 @@ namespace aspnet_app
                 AuthorId = 1,
                 CategoryId = 1,
                 Content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fug",
-                CreatedAt = new DateOnly(2023, 01, 9),
+                CreatedAt = new DateTime(2023, 01, 9).ToUniversalTime(),
                 Image = "https://miro.medium.com/v2/resize:fill:224:224/0*51beacbmyp82xuxN",
                 Tags = "Programming",
-                TimeToRead = new TimeOnly(0, 6, 0),
+                TimeToRead = TimeSpan.FromMinutes(13),
                 Title = "Node.js Developer Roadmap 2023"
             });
         }
