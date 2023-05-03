@@ -4,7 +4,6 @@ namespace aspnet_app
 {
     public class User
     {
-        [Key]
         public int Id { get; set; }
 
         [Required]

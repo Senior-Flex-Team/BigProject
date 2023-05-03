@@ -88,7 +88,11 @@ namespace aspnet_app.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Cards");
+                    b.HasIndex("AuthorId");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("Card");
 
                     b.HasData(
                         new
@@ -97,7 +101,7 @@ namespace aspnet_app.Migrations
                             AuthorId = 1,
                             CategoryId = 1,
                             Content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fug",
-                            CreatedAt = new DateTime(2023, 1, 7, 21, 0, 0, 0, DateTimeKind.Utc),
+                            CreatedAt = new DateTime(2023, 1, 8, 0, 0, 0, 0, DateTimeKind.Utc),
                             Image = "https://miro.medium.com/v2/resize:fill:224:224/1*8UwcxNMjdWjipC_XZu8qYg.png",
                             Tags = "Mac",
                             TimeToRead = new TimeSpan(0, 0, 6, 0, 0),
@@ -109,7 +113,7 @@ namespace aspnet_app.Migrations
                             AuthorId = 1,
                             CategoryId = 1,
                             Content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fug",
-                            CreatedAt = new DateTime(2023, 1, 8, 21, 0, 0, 0, DateTimeKind.Utc),
+                            CreatedAt = new DateTime(2023, 1, 9, 0, 0, 0, 0, DateTimeKind.Utc),
                             Image = "https://miro.medium.com/v2/resize:fill:224:224/0*51beacbmyp82xuxN",
                             Tags = "Programming",
                             TimeToRead = new TimeSpan(0, 0, 13, 0, 0),
@@ -117,7 +121,7 @@ namespace aspnet_app.Migrations
                         });
                 });
 
-            modelBuilder.Entity("aspnet_app.Category", b =>
+            modelBuilder.Entity("aspnet_app.Models.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -132,7 +136,7 @@ namespace aspnet_app.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Category");
 
                     b.HasData(
                         new
@@ -157,7 +161,37 @@ namespace aspnet_app.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("User");
+                });
+
+            modelBuilder.Entity("aspnet_app.Card", b =>
+                {
+                    b.HasOne("aspnet_app.Author", "Author")
+                        .WithMany("Cards")
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("aspnet_app.Models.Category", "Category")
+                        .WithOne("Card")
+                        .HasForeignKey("aspnet_app.Card", "CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Author");
+
+                    b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("aspnet_app.Author", b =>
+                {
+                    b.Navigation("Cards");
+                });
+
+            modelBuilder.Entity("aspnet_app.Models.Category", b =>
+                {
+                    b.Navigation("Card")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

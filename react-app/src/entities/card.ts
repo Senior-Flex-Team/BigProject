@@ -3,10 +3,10 @@ export interface ICard {
     title: string;
     content: string;
     authorName: string;
-    authorImg: string;
+    authorImage: string;
     categoryName: string;
     createdAt: string;
     tags: string[];
     timeToRead: string;
-    img: string;
+    image: string;
 }

@@ -30,7 +30,7 @@ namespace aspnet_app
                 _context.Add(user);
                 await _context.SaveChangesAsync();
 
-                var users = await _context.Users.ToListAsync();
+                var users = await _context.User.ToListAsync();
 
                 return Ok(users);
             }

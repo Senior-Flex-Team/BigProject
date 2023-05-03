@@ -14,7 +14,7 @@ export const Card: FC<Properties> = ({ card }) => {
       <div className={styles.header}>
         <div className={styles.authorImg}>
           <img
-            src={card.authorImg}
+            src={card.authorImage}
             alt=''
           />
         </div>
@@ -33,7 +33,7 @@ export const Card: FC<Properties> = ({ card }) => {
         <div className={styles.imageWrapper}>
           <div className={styles.image}>
             <img
-              src={card.img}
+              src={card.image}
               alt=''
             />
           </div>

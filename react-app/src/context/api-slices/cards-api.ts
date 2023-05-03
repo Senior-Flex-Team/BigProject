@@ -6,15 +6,15 @@ import { type ICard } from '../../entities/card';
 export const cardsApi = createApi({
     reducerPath: 'cardsApi',
     baseQuery: fetchBaseQuery({
-        baseUrl: 'https://react-http-6cdee-default-rtdb.firebaseio.com/',
+        baseUrl: 'http://localhost:8088/',
     }),
     endpoints: (builder) => ({
         // eslint-disable-next-line @typescript-eslint/no-invalid-void-type
         getAlLCards: builder.query<ICard[], void>({
-            query: () => `/cards.json`,
+            query: () => `/Card/GetAllCards`,
         }),
         getCardById: builder.query<ICard, string>({
-            query: (id) => `/cards/${id}.json`,
+            query: (id) => `/Card/GetCardById?id=${id}`,
         }),
     }),
 });

@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using aspnet_app.Models;
+using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace aspnet_app
@@ -6,13 +8,11 @@ namespace aspnet_app
     public class Card
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [ForeignKey("AuthorId")]
         public int AuthorId { get; set; }
-
-        [ForeignKey("CategoryId")]
-        public int CategoryId { get; set; }
+        public Author Author { get; set; }
 
         [Required]
         public string Content { get; set; }
@@ -30,5 +30,8 @@ namespace aspnet_app
 
         [Required]
         public string Title { get; set; }
+        [ForeignKey("Category")]
+        public int CategoryId { get; set; }
+        public virtual Category Category { get; set; }
     }
 }
