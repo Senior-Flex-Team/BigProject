@@ -30,6 +30,7 @@ namespace aspnet_app
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //Связь карточка -> категория 1к1 (через анотации не получается, при попытке изменить бд, бьет ошибку)
             modelBuilder.Entity<Card>()
                 .HasIndex(c => c.CategoryId)
                 .IsUnique(false);
